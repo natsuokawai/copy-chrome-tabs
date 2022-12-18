@@ -4,5 +4,12 @@
   "version": "1.0",
   "action": {
     "default_popup": "popup.html"
-  }
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
 }
