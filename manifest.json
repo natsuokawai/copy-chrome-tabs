@@ -3,7 +3,7 @@
   "name": "Copy Chrome Tabs",
   "version": "1.0",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "src/popup.html"
   },
   "permissions": [
     "tabs"
