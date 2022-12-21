@@ -1,12 +1,16 @@
-const main = document.getElementById('main');
+const main = document.getElementById("main");
 
 const currentWindow = await chrome.windows.getCurrent();
-const tabs = await chrome.tabs.query({windowId: currentWindow.id, url: '*://*/*'});
+const tabs = await chrome.tabs.query({
+  windowId: currentWindow.id,
+  url: "*://*/*",
+});
 
-const extractTabTitleAndUrl = (tabs) => tabs.map((tab) => `[${tab.title}](${tab.url})`).join('\n');
+const extractTabTitleAndUrl = (tabs) =>
+  tabs.map((tab) => `- [${tab.title}](${tab.url})`).join("\n");
 
-const button = main.querySelector('button');
-button.addEventListener('click', async () => {
+const button = main.querySelector("button");
+button.addEventListener("click", async () => {
   if (tabs.length) {
     try {
       await navigator.clipboard.writeText(extractTabTitleAndUrl(tabs));
